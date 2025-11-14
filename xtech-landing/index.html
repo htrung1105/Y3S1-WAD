@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-TECH Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #4a1942 0%, #2d1b3d 50%, #1a1625 100%);
+      position: relative;
+    }
+
+    .gradient-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,.03) 2px, rgba(255,255,255,.03) 4px);
+      pointer-events: none;
+    }
+
+    .logo-colorful {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #e74c3c, #f39c12, #3498db, #9b59b6);
+      border-radius: 8px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-colorful::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: white;
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    }
+
+    .icon-monitor {
+      width: 60px;
+      height: 50px;
+      background: linear-gradient(135deg, #4fa3d1 0%, #2980b9 100%);
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-monitor::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 4px;
+      background: #34495e;
+      border-radius: 2px;
+    }
+
+    .icon-server {
+      width: 60px;
+      height: 50px;
+      background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-server::before,
+    .icon-server::after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      height: 2px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .icon-server::before {
+      top: 15px;
+    }
+
+    .icon-server::after {
+      top: 30px;
+    }
+
+    .icon-briefcase {
+      width: 60px;
+      height: 45px;
+      background: linear-gradient(135deg, #7f8c8d 0%, #5d6d7e 100%);
+      border-radius: 4px 4px 8px 8px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-briefcase::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 25px;
+      height: 10px;
+      background: #5d6d7e;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .icon-folder {
+      width: 60px;
+      height: 50px;
+      background: linear-gradient(135deg, #d4a574 0%, #a67c52 100%);
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-folder::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 30px;
+      height: 8px;
+      background: #c19a6b;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .icon-camera {
+      width: 60px;
+      height: 45px;
+      background: linear-gradient(135deg, #5d6d7e 0%, #34495e 100%);
+      border-radius: 8px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-camera::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+    }
+
+    .icon-camera::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      width: 8px;
+      height: 6px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 2px;
+    }
+
+    .icon-mouse {
+      width: 50px;
+      height: 60px;
+      background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
+      border-radius: 25px;
+      position: relative;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .icon-mouse::before {
+      content: '';
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 10px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 2px;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.5);
+    }
+
+    .cta-button-light {
+      background: linear-gradient(135deg, #87CEEB 0%, #5dade2 100%);
+      box-shadow: 0 8px 16px rgba(52, 152, 219, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+    }
+
+    .cta-button-light::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+      border-radius: 9999px;
+      pointer-events: none;
+    }
+
+    .cta-button-light:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(52, 152, 219, 0.5), 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .arrow-curve {
+      color: #85c1e9;
+      font-size: 48px;
+      font-weight: 300;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+  <main class="bg-white rounded-lg shadow-2xl my-8 max-w-4xl w-full overflow-hidden">
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row justify-between items-center px-6 sm:px-10 pt-8 pb-4 gap-4">
+      <div class="flex items-center space-x-3">
+        <img src="logo.svg" alt="X-TECH Logo" class="w-10 h-10">
+        <span class="text-2xl text-gray-700">
+          <span class="font-bold">X-TECH</span>
+          <span class="font-light text-gray-400">LANDING</span>
+        </span>
+      </div>
+      <div class="text-sm">
+        <span class="font-bold text-gray-700">CALL NOW!</span>
+        <span class="text-gray-400 ml-1">1-800-123-4567</span>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center px-6 sm:px-10 pt-4 pb-6">
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 leading-tight">
+        The perfect way to convert your traffic into sales.
+      </h1>
+
+      <div class="flex justify-center mb-8 px-4">
+        <div class="relative w-full max-w-2xl">
+          <img src="poster.png" alt="Product Mockup" class="w-full h-auto object-contain" style="max-height: 280px;">
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:relative lg:flex-row justify-center items-center gap-4 mb-3">
+        <button class="cta-button-light text-blue-900 py-2 px-6 rounded-full flex flex-col items-center gap-0.5">
+          <span class="text-lg font-black uppercase tracking-wide text-center">Give it a try!</span>
+          <span class="text-xs font-normal normal-case tracking-normal text-center">Get 30 days access to the fully operational product</span>
+        </button>
+
+        <div class="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 text-base flex items-center gap-2">
+          <span class="text-blue-400 italic tracking-tighter">or check out the features</span>
+          <img src="arrow2.svg" alt="arrow" class="w-20 h-auto hidden lg:inline-block" style="transform: scale(-1, 1) rotate(90deg) translateX(35px);">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-6 sm:px-10 py-8">
+      <!-- Feature 1 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-monitor mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">Quick and easy</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-server mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">Less risky</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-briefcase mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">Support - 24h</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-folder mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">Well written help file</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Va quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari.
+        </p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-camera mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">Import your own photos</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut.
+        </p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="flex flex-col items-start">
+        <div class="icon-mouse mb-4"></div>
+        <h3 class="font-bold text-gray-800 text-lg mb-2">User friendly design</h3>
+        <p class="text-gray-600 text-sm leading-relaxed">
+          It va esser tam simplic quam Occidental in fact, it va esser Occidental. A un Angleso it va semblar un simplificat Angles.
+        </p>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="px-6 sm:px-10 py-6">
+      <div class="text-blue-500 text-lg italic mb-4">See what our customers are saying...</div>
+
+      <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+        <p class="text-gray-600 text-sm leading-relaxed italic">
+          Lorem ipsum dolor sit amet, consetetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        </p>
+        <div class="text-right text-gray-500 text-sm mt-4 italic">
+          Steve Jobs, Apple
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center px-6 sm:px-10 py-8">
+      <div class="flex flex-col lg:relative lg:flex-row justify-center items-center gap-4 mb-3">
+        <div class="lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2 text-lg flex items-center gap-2 order-2 lg:order-1">
+          <img src="arrow2.svg" alt="arrow" class="w-20 h-auto lg:block hidden" style="transform: translateY(-20px);">
+          <span class="text-blue-400 italic tracking-tighter">...don't wait and</span>
+        </div>
+
+        <button class="cta-button-light text-blue-900 py-2 px-6 rounded-full flex flex-col items-center gap-0.5 order-1 lg:order-2">
+          <span class="text-lg font-black uppercase tracking-wide text-center">Give it a try!</span>
+          <span class="text-xs font-normal normal-case tracking-normal text-center">Get 30 days access to the fully operational product</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-300 to-gray-400 px-6 sm:px-10 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-6">
+        <!-- Contact -->
+        <div>
+          <h4 class="font-bold text-gray-800 text-base mb-3">Contact</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Lorem ipsum dolor sit amet, consetetur adipiscing elit, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
+          </p>
+        </div>
+
+        <!-- Google Map -->
+        <div>
+          <div class="w-full h-48 bg-gray-200 rounded border border-gray-300 overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4545436806046!2d106.80086967570653!3d10.870008889284104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d8a6b19d6763%3A0x143c54525028b2e!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBLaG9hIGjhu41jIFThu7Egbmhpw6puIC0gxJBIUUctSENN!5e0!3m2!1svi!2s!4v1729015234567!5m2!1svi!2s"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Design details -->
+        <div>
+          <h4 class="font-bold text-gray-800 text-base mb-3">Design details</h4>
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          </p>
+        </div>
+
+        <!-- Stay connected -->
+        <div>
+          <h4 class="font-bold text-gray-800 text-base mb-3">Stay connected</h4>
+          <div class="flex gap-3 mt-4">
+            <!-- Skype -->
+            <a href="#" class="w-8 h-8 bg-[#00aff0] rounded flex items-center justify-center hover:bg-[#0099d6] cursor-pointer transition">
+              <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.069 18.874c-4.023 0-5.82-1.979-5.82-3.464 0-.765.561-1.296 1.333-1.296 1.723 0 1.273 2.477 4.487 2.477 1.641 0 2.55-.895 2.55-1.811 0-.551-.269-1.16-1.354-1.429l-3.576-.895c-2.88-.724-3.403-2.286-3.403-3.751 0-3.047 2.861-4.191 5.549-4.191 2.471 0 5.393 1.373 5.393 3.199 0 .784-.688 1.24-1.453 1.24-1.469 0-1.198-2.037-4.164-2.037-1.469 0-2.292.664-2.292 1.617s1.153 1.258 2.157 1.487l2.637.587c2.891.649 3.624 2.346 3.624 3.944 0 2.476-1.902 4.324-5.722 4.324m11.084-4.882l-.029.135-.044-.24c.015.045.044.074.059.12.12-.675.181-1.363.181-2.052 0-1.529-.301-3.012-.898-4.42-.569-1.348-1.395-2.562-2.427-3.596-1.049-1.033-2.247-1.856-3.595-2.426-1.318-.631-2.801-.93-4.328-.93-.72 0-1.444.07-2.143.204l.119.06-.239-.033.119-.025C8.91.274 7.829 0 6.731 0c-1.789 0-3.47.698-4.736 1.967C.729 3.235.032 4.923.032 6.716c0 1.143.292 2.265.844 3.258l.02-.124.041.239-.06-.115c-.114.645-.172 1.299-.172 1.955 0 1.53.3 3.017.884 4.416.568 1.362 1.378 2.576 2.427 3.609 1.034 1.05 2.247 1.857 3.595 2.442 1.394.6 2.877.898 4.404.898.659 0 1.334-.06 1.977-.179l-.119-.062.24.046-.135.03c.972.555 2.083.852 3.216.852 1.804 0 3.485-.698 4.751-1.967 1.263-1.271 1.96-2.951 1.96-4.749 0-1.097-.27-2.163-.764-3.094"/>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" class="w-8 h-8 bg-[#0077b5] rounded flex items-center justify-center hover:bg-[#006399] cursor-pointer transition">
+              <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="w-8 h-8 bg-[#1877f2] rounded flex items-center justify-center hover:bg-[#0d65d9] cursor-pointer transition">
+              <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <!-- Digg -->
+            <a href="#" class="w-8 h-8 bg-[#000000] rounded flex items-center justify-center hover:bg-[#333333] cursor-pointer transition">
+              <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 9.4h2v7.2h-2zm0-3.6h2v2.4h-2zM24 9.4v10.8h-5.6V22h-6.8v-1.8h4.8v-1.2h-4.8V9.4h6.8V6.2h-6.8V3.8H24zM4 9.4h2v7.2H0v-10h4V3.8H0V2h6v7.4H4zm4.4 0v7.2H6V9.4h2.4zm0-3.6V3.4H6v2.4h2.4z"/>
+              </svg>
+            </a>
+            <!-- Twitter -->
+            <a href="#" class="w-8 h-8 bg-[#1da1f2] rounded flex items-center justify-center hover:bg-[#0d8bd9] cursor-pointer transition">
+              <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-500 pt-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-gray-700 text-xs">
+        <span>Copyright © 2011 - Shegy - All rights reserved.</span>
+        <div>
+          <a href="#" class="hover:text-gray-900">Privacy policy</a>
+          <span class="mx-2">|</span>
+          <a href="#" class="hover:text-gray-900">Regulations</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
