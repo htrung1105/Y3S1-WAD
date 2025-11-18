@@ -47,4 +47,163 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.photo-full {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.photo-info {
+  margin-top: 20px;
+}
+
+.photo-description {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-left: 4px solid #007bff;
+}
+
+.photo-description h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.photo-description p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1em;
+  margin: 0;
+}
+
+.photo-metadata {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.photo-metadata h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+.photo-metadata p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.photo-metadata a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.photo-metadata a:hover {
+  text-decoration: underline;
+}
+
+.photo-detail {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.photo-detail > a {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.photo-detail > a:hover {
+  color: #0056b3;
+}
+
+.photo-detail h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.photo-detail img {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.author-info h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.caption {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.5;
+}
+
+.tags {
+  margin-top: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #eee;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 10px;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.loading-message, .error-message {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.2em;
+  color: #555;
+}
+
+.loading-message {
+  color: #007bff;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 40px auto;
 }

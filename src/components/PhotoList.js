@@ -44,7 +44,7 @@ const PhotoList = () => {
 
   return (
     <div>
-      <h1>Photo List</h1>
+      <h1>Picsum Photo Gallery</h1>
       <div className="photo-grid">
         {photos.map(photo => (
           <div key={photo.id} className="photo-item">
