@@ -27,6 +27,7 @@ const PhotoList = () => {
 
   useEffect(() => {
     fetchPhotos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleScroll = useCallback(() => {
